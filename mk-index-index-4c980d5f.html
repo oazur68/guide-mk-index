@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mk体育 – 日常查询与对照指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce7c8 0%, #fddeab 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2e2b27;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 20px 40px -12px rgba(150, 90, 30, 0.25),
+                        0 8px 20px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 540px) {
+            body { padding: 1rem; }
+            .card { padding: 1.8rem 1.2rem; border-radius: 28px; }
+        }
+
+        /* 开场短句 */
+        .opening {
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            color: #7a5c3a;
+            border-left: 3px solid #d9ad7c;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-weight: 480;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 580;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            color: #412f20;
+            line-height: 1.2;
+        }
+
+        h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #7d6a57;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #4e3d2d;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+        }
+
+        .desc {
+            margin-bottom: 1.6rem;
+            font-size: 1rem;
+        }
+
+        .desc a {
+            color: #9a6e44;
+            text-decoration: none;
+            font-weight: 520;
+            border-bottom: 1px dashed #cbaa84;
+            transition: border-color 0.15s;
+        }
+
+        .desc a:hover {
+            border-bottom: 1px solid #7c5737;
+            color: #7c5737;
+        }
+
+        /* 特点列表 — 卡片式圆角按钮感 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.2rem 0 2rem;
+        }
+
+        .feature-item {
+            background: #fef7ef;
+            border: 1px solid #ebddcf;
+            border-radius: 60px;
+            padding: 0.55rem 1.3rem;
+            font-size: 0.95rem;
+            color: #3b3027;
+            display: inline-block;
+            box-shadow: 0 2px 6px rgba(170, 120, 70, 0.05);
+            transition: background 0.15s, box-shadow 0.15s;
+            letter-spacing: 0.01em;
+            line-height: 1.5;
+        }
+
+        .feature-item strong {
+            font-weight: 560;
+            color: #543d2b;
+        }
+
+        .feature-item:hover {
+            background: #faf0e3;
+            box-shadow: 0 4px 10px rgba(150, 90, 40, 0.08);
+        }
+
+        /* 承接段落与延伸阅读 */
+        .bridge {
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .bridge p {
+            margin-bottom: 1.1rem;
+        }
+
+        .scene-block {
+            background: #faf3e9;
+            border-radius: 24px;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .scene-block h3 {
+            font-size: 1rem;
+            font-weight: 520;
+            color: #5c4633;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.03em;
+        }
+
+        .scene-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scene-block li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .scene-block li::before {
+            content: "—";
+            color: #b69168;
+        }
+
+        .faq-note {
+            border-top: 1px solid #e5d6c5;
+            margin-top: 2rem;
+            padding-top: 1.4rem;
+            font-size: 0.95rem;
+            color: #4d3d2f;
+        }
+
+        .faq-note dt {
+            font-weight: 540;
+            margin: 1rem 0 0.2rem;
+            color: #3f2f21;
+        }
+
+        .faq-note dd {
+            margin-left: 0.2rem;
+            color: #584b3d;
+        }
+
+        .faq-note a {
+            color: #8f6a46;
+            border-bottom: 1px dashed #c7aa8b;
+            text-decoration: none;
+        }
+
+        .faq-note a:hover {
+            border-bottom: 1px solid #6b4f34;
+        }
+
+        .gentle-end {
+            margin-top: 2.6rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #ead9c8;
+            font-size: 0.95rem;
+            color: #5f4d3b;
+            text-align: right;
+            letter-spacing: 0.02em;
+        }
+
+        .gentle-end span {
+            background: #efdecb;
+            padding: 0.15rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #4b3929;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eddccc;
+            margin: 1.8rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+
+    <div class="opening">日常查询 · 对照 · 延伸阅读</div>
+
+    <h1>
+        mk体育
+        <small>信息聚合与索引</small>
+    </h1>
+
+    <div class="subhead">
+        不追求即时推送，更在意资料沉淀与查找效率。
+    </div>
+
+    <div class="desc">
+        在信息流密集的今天，一个轻量、可反复查阅的聚合索引反而更有价值。<a href="https://mk-index.com">mk体育</a> 正是以这种思路搭建：它不替代实时比分或深度报道，而是作为日常查询的起点，提供赛事结构、术语对照、赛季脉络与历史参考。
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+        <span class="feature-item"><strong>术语</strong> 中英对照</span>
+        <span class="feature-item"><strong>赛制</strong> 阶梯说明</span>
+        <span class="feature-item"><strong>赛季</strong> 时间线索引</span>
+        <span class="feature-item"><strong>数据</strong> 基础统计口径</span>
+        <span class="feature-item"><strong>背景</strong> 规则演变简史</span>
+        <span class="feature-item"><strong>延伸</strong> 关联项目备注</span>
+    </div>
+
+    <!-- 承接段落 -->
+    <div class="bridge">
+        <p>
+            当你需要确认某个联赛的升降级规则、比对不同赛事的积分算法，或者想快速了解某项运动的器材规格变化，<a href="https://mk-index.com">mk体育</a> 的条目式结构能帮你节省碎片时间。每个主题尽量剥离冗余，保留骨架，让二次查找更顺手。
+        </p>
+        <p>
+            日常使用场景包括：赛前快速浏览对阵背景、赛后对照技术统计定义、查阅转播中出现的英文术语，以及梳理跨赛季的排名变迁。这些内容不以新闻速度取胜，而以结构清晰维持参考价值。
+        </p>
+    </div>
+
+    <!-- 场景块 -->
+    <div class="scene-block">
+        <h3>常见查询场景</h3>
+        <ul>
+            <li>比赛回放里出现「助攻」统计口径差异，对照条目找到联赛定义原文</li>
+            <li>赛季末升降级名额变化，直接查看对应赛事赛制章节</li>
+            <li>转播画面闪过缩写如「GPG」「PIM」，在术语页快速定位全称</li>
+            <li>想了解某项规则近年调整，延伸阅读部分附有版本备注</li>
+        </ul>
+    </div>
+
+    <!-- FAQ摘要 / 温和提示 -->
+    <dl class="faq-note">
+        <dt>❓ 内容更新频率？</dt>
+        <dd>以赛季为单位修订，重大规则变化时补充。不追每日新闻，保持条目稳定。</dd>
+        <dt>📎 延伸阅读方向</dt>
+        <dd>主要参考各协会官方规则手册、历史档案及公开赛事资料，部分条目附有外链原始出处，可在关联页面中找到。</dd>
+        <dt>🔍 索引结构说明</dt>
+        <dd>按运动项目 — 赛事层级 — 规则模块 三级展开，同时提供跨项目对照表（如不同运动中的“加时”规则差异）。欢迎通过 <a href="https://mk-index.com">mk体育</a> 首页导航浏览全部类别。</dd>
+    </dl>
+
+    <hr>
+
+    <div class="gentle-end">
+        <span>温和沉淀 · 对照友好</span>
+    </div>
+
+</div>
+</body>
+</html>
